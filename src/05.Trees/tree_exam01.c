@@ -37,6 +37,22 @@ void inorder(tree_pointer ptr){
         inorder(ptr->right_child);
     }
 }
+
+void preorder(tree_pointer ptr){
+    if(ptr){
+        printf("%s ", node_names[ptr->data]);
+        preorder(ptr->left_child);
+        preorder(ptr->right_child);
+    }
+}
+
+void postorder(tree_pointer ptr){
+    if(ptr){
+        postorder(ptr->left_child);
+        postorder(ptr->right_child);
+        printf("%s ", node_names[ptr->data]);
+    }
+}
 int main()
 {
     tree_pointer nodes[16]; 
@@ -55,6 +71,11 @@ int main()
     nodes[C]->right_child = nodes[G];
 
     inorder(nodes[A]);
+    printf("\n");
+    preorder(nodes[A]);
+    printf("\n");
+    postorder(nodes[A]);
+    printf("\n");
 
     return 0;
 }
